@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    min-width: 35%;
+    margin-top: 30px;
+    /* background: #eeeeee; */
+}
+h3{
+    border-bottom: 2px solid rgb(65, 65, 65);
+    font-size: 25px;
+    padding: 5px;
+    margin-top: 15px;
+    color: rgb(65, 65, 65);
+    text-transform: uppercase;
+}
+div.new{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+input[type=text]{
+    float: left;
+    width: 300px;
+    padding: 10px;
+    height: 40px;
+    outline: none;
+    font-size: 18px;
+    border: 2px solid rgb(120, 120, 120);
+    color: rgb(120, 120, 120);
+    border-radius: 7px;
+    margin-top: -15px;
+}
+input[type=text]:focus{
+    color: rgb(65, 65, 65);
+    border: 2px solid rgb(65, 65, 65);
+}
+div > button{
+    font-size: 18px;
+    height: 40px;
+}
+button{
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 15px;
+    margin: 0 10px;
+    float: right;
+    cursor: pointer;
+    color: rgb(120, 120, 120);
+}
+button:hover{
+    color: rgb(38, 38, 38);
+}
+li{
+    list-style-type: none;
+    clear: both;
+    display: block;
+    padding: 30px 35px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(191, 191, 191);
+}
+li > input[type=text]{
+    display: none;
+    width: 250px;
+}
+input[type=checkbox]{
+    float: left;
+    margin: 0 10px;
+    position: relative;
+    top: 3px;
+}
+label{
+    /* display: none; */
+    float: left;
+    font-size: 18px;
+}
+#completed-tasks label{
+    text-decoration: line-through;
+    color: rgb(120, 120, 120)
+}
+.editMode input[type=text]{
+    display: block;
+}
+.editMode label{
+    display: none;
+}
