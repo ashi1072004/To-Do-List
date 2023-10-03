@@ -37,6 +37,9 @@ input[type=text]{
     border-radius: 7px;
     margin-top: -15px;
 }
+#new-task{
+    margin-top: 0;
+}
 input[type=text]:focus{
     color: rgb(65, 65, 65);
     border: 2px solid rgb(65, 65, 65);
@@ -72,14 +75,17 @@ li > input[type=text]{
 }
 input[type=checkbox]{
     float: left;
+    width: 18px;
+    height: 18px;
     margin: 0 10px;
-    position: relative;
-    top: 3px;
+    /* position: relative; */
+    /* top: 2px; */
 }
 label{
     /* display: none; */
     float: left;
     font-size: 18px;
+    color: rgb(65, 65, 65);
 }
 #completed-tasks label{
     text-decoration: line-through;
