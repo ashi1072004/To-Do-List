@@ -1,16 +1,19 @@
-var taskInput = document.querySelector("#new-task");
-var addButton = document.querySelector("button")[0];
-var incompleteTaskHolder = document.querySelector("#incomplete-tasks");
-var completedTaskHolder = document.querySelector("#completed-tasks");
-addButton.onclick = addTask;
+let taskInput = document.querySelector("#new-task");
+let addButton = document.querySelectorAll("button")[0];
+let incompleteTaskHolder = document.querySelector("#incomplete-tasks");
+let completedTaskHolder = document.querySelector("#completed-tasks");
 
-var createNewTaskElem = function (taskString) {
-    var listItem = document.createElement("li");
-    var checkbox = document.createElement("input");
-    var label = document.createElement("label");
-    var editInput = document.createElement("input");
-    var editButton = document.createElement("button");
-    var deleteButton = document.createElement("button");
+addButton.addEventListener("click", addTask);
+taskInput.onfocus = ()=>{taskInput.style.borderColor = "rgb(65, 65, 65)";};
+taskInput.onblur = ()=>{taskInput.style.borderColor = "rgb(120, 120, 120)";};
+
+function createNewTaskElem(taskString) {
+    let listItem = document.createElement("li");
+    let checkbox = document.createElement("input");
+    let label = document.createElement("label");
+    let editInput = document.createElement("input");
+    let editButton = document.createElement("button");
+    let deleteButton = document.createElement("button");
     label.innerText = taskString;
     checkbox.type = "checkbox";
     editInput.type = "text";
@@ -24,10 +27,14 @@ var createNewTaskElem = function (taskString) {
     listItem.appendChild(editButton);
     listItem.appendChild(deleteButton);
     return listItem;
-};
+}
 
-var addTask = function () {
-    var listItem = createNewTaskElem(taskInput.value);
+function addTask() {
+    if(!taskInput.value){
+        taskInput.style.borderColor = "rgb(202, 24, 24)";
+        return;
+    }
+    let listItem = createNewTaskElem(taskInput.value);
     incompleteTaskHolder.appendChild(listItem);
     taskInput.value = "";
-};
+}
