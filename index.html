@@ -15,11 +15,36 @@
             <button id="add">Add</button>
         </div>
         <h3>My tasks</h3>
-        <ul id="incomplete-tasks"></ul>
+        <ul id="incomplete-tasks">
+            <li class="dnone">No Incomplete Tasks</li>
+            <li>
+                <input type="checkbox">
+                <label>task1</label>
+                <input type="text">
+                <button class="delete">Delete</button>
+                <button class="edit">Edit</button>
+            </li>
+            <li>
+                <input type="checkbox">
+                <label>task2</label>
+                <input type="text">
+                <button class="delete">Delete</button>
+                <button class="edit">Edit</button>
+            </li>
+        </ul>
         <h3>Completed tasks</h3>
-        <ul id="completed-tasks"></ul>
+        <ul id="completed-tasks">
+            <li class="dnone">No Completed Tasks</li>
+            <li>
+                <input type="checkbox" checked>
+                <label>task3</label>
+                <input type="text">
+                <button class="delete">Delete</button>
+                <button class="edit">Edit</button>
+            </li>
+        </ul>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
     <script src="./script.js"></script>
 </body>
 </html>
