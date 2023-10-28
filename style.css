@@ -8,7 +8,7 @@ body{
     justify-content: center;
 }
 .container{
-    min-width: 35%;
+    min-width: 30%;
     margin-top: 30px;
     /* background: #eeeeee; */
 }
@@ -27,9 +27,7 @@ div.new{
 }
 input[type=text]{
     float: left;
-    width: 300px;
     padding: 10px;
-    height: 40px;
     outline: none;
     font-size: 18px;
     border: 2px solid rgb(120, 120, 120);
@@ -37,8 +35,15 @@ input[type=text]{
     border-radius: 7px;
     margin-top: -15px;
 }
+li > input[type=text]{
+    display: none;
+    width: 150px;
+    height: 35px;
+}
 #new-task{
     margin-top: 0;
+    height: 40px;
+    width: 250px;
 }
 input[type=text]:focus{
     color: rgb(65, 65, 65);
@@ -53,7 +58,7 @@ button{
     outline: none;
     background: none;
     font-size: 15px;
-    margin: 0 10px;
+    margin: 0 8px;
     float: right;
     cursor: pointer;
     color: rgb(120, 120, 120);
@@ -65,13 +70,23 @@ li{
     list-style-type: none;
     clear: both;
     display: block;
-    padding: 30px 35px;
+    padding: 25px 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid rgb(191, 191, 191);
 }
-li > input[type=text]{
-    display: none;
-    width: 250px;
+@media screen and (min-width: 768px) {
+    li{
+        padding: 30px 35px;
+    }
+    li > input[type=text]{
+        max-width: 180px;
+        height: 40px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    li > input[type=text]{
+        max-width: 230px;
+    }
 }
 input[type=checkbox]{
     float: left;
@@ -86,6 +101,7 @@ label{
     float: left;
     font-size: 18px;
     color: rgb(65, 65, 65);
+    width: 160px;
 }
 #completed-tasks label{
     text-decoration: line-through;

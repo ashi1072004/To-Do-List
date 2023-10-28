@@ -5,8 +5,8 @@ let addButton = document.getElementsByTagName("button")[0];
 let incompleteTaskHolder = document.getElementById("incomplete-tasks");
 let completedTaskHolder = document.getElementById("completed-tasks");
 
-taskInput.onfocus = ()=> taskInput.style.borderColor = "rgb(65, 65, 65)";
-taskInput.onblur = ()=> taskInput.style.borderColor = "rgb(120, 120, 120)";
+// taskInput.onfocus = ()=> taskInput.style.borderColor = "rgb(65, 65, 65)";
+// taskInput.onblur = ()=> taskInput.style.borderColor = "rgb(120, 120, 120)";
 
 addButton.addEventListener("click", addTask);
 // addButton.addEventListener("click", ajaxRequest);
@@ -42,9 +42,8 @@ function createNewTaskElem(taskString) {
 
 function addTask() {
     if(!taskInput.value){
-        // taskInput.style.borderColor = "rgb(202, 24, 24)";
-        let timer = setTimeout(() => taskInput.style.borderColor = "rgb(202, 24, 24)");
-        setTimeout(() => clearTimeout(timer),1000);
+        taskInput.style.borderColor = "rgb(202, 24, 24)";
+        setTimeout(() => taskInput.style.borderColor = "", 1500);
         return;
     }
     let listItem = createNewTaskElem(taskInput.value);
