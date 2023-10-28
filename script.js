@@ -13,9 +13,11 @@ addButton.addEventListener("click", addTask);
 
 for(let c=1; c<incompleteTaskHolder.children.length; c++){
     bindTaskEvents(incompleteTaskHolder.children[c], taskCompleted);
+    checkLength();
 }
 for(let s=1; s<completedTaskHolder.children.length; s++){
     bindTaskEvents(completedTaskHolder.children[s], taskIncomplete);
+    checkLength();
 }
 
 function createNewTaskElem(taskString) {
@@ -43,12 +45,13 @@ function createNewTaskElem(taskString) {
 function addTask() {
     if(!taskInput.value){
         taskInput.style.borderColor = "rgb(202, 24, 24)";
-        setTimeout(() => taskInput.style.borderColor = "", 1500);
+        setTimeout(() => taskInput.style.borderColor = "", 1000);
         return;
     }
     let listItem = createNewTaskElem(taskInput.value);
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
+    checkLength();
     taskInput.value = "";
 }
 
@@ -77,21 +80,33 @@ function deleteTask(){
     let listItem = this.parentNode;
     let ul = listItem.parentNode;
     ul.removeChild(listItem);
+    checkLength();
 }
 
 function taskCompleted(){
     let listItem = this.parentNode;
     completedTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
+    checkLength();
 }
 
 function taskIncomplete(){
     let listItem = this.parentNode;
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
+    checkLength();
 }
 
 function bindTaskEvents(taskListItem, checkboxHandler){
+    let checkbox = taskListItem.querySelector("input[type=checkbox]");
+    let editButton = taskListItem.querySelector("button.edit");
+    let deleteButton = taskListItem.querySelector("button.delete");
+    editButton.addEventListener("click", editTask);  
+    deleteButton.addEventListener("click", deleteTask);    
+    checkbox.onchange = checkboxHandler;    
+}
+
+function checkLength(){
     if(incompleteTaskHolder.children.length == 1){
         incompleteTaskHolder.firstElementChild.style.display = "block";
     }else{
@@ -102,10 +117,4 @@ function bindTaskEvents(taskListItem, checkboxHandler){
     }else{
         completedTaskHolder.firstElementChild.style.display = "none";
     }
-    let checkbox = taskListItem.querySelector("input[type=checkbox]");
-    let editButton = taskListItem.querySelector("button.edit");
-    let deleteButton = taskListItem.querySelector("button.delete");
-    editButton.addEventListener("click", editTask);  
-    deleteButton.addEventListener("click", deleteTask);    
-    checkbox.onchange = checkboxHandler;    
 }
